@@ -6,7 +6,7 @@ The Numenta Platform for Intelligent Computing (**NuPIC**) is a machine intellig
 
 For more information, see [numenta.org](http://numenta.org) or the [NuPIC wiki](https://github.com/numenta/nupic/wiki).
 
-## Installing NuPIC 0.5.4
+## Installing NuPIC 0.5.5
 
 NuPIC binaries are available for:
 
@@ -20,8 +20,9 @@ NuPIC binaries are available for:
 The following dependencies are required to install NuPIC on all operating systems.
 
 - [Python 2.7 & development headers](https://docs.python.org/devguide/setup.html#build-dependencies)
-- [pip](https://pip.pypa.io/en/stable/installing/)
-- [wheel](http://pythonwheels.com)
+- [pip](https://pip.pypa.io/en/stable/installing/)>=8.1.2
+- [setuptools](https://setuptools.readthedocs.io)>=25.2.0
+- [wheel](http://pythonwheels.com)>=0.29.0
 - [numpy](http://www.numpy.org/)
 - C++ 11 compiler like [gcc](https://gcc.gnu.org/) (4.8+) or [clang](http://clang.llvm.org/)
 
@@ -35,7 +36,7 @@ First, you must install [Xcode command line tools](https://developer.apple.com/l
 
 > **NOTE**: The `nupic.bindings` binary distribution is not stored on [PyPi](https://pypi.python.org/pypi/nupic) along with the OS X distribution. NuPIC uses the [wheel](http://pythonwheels.com) binary format, and PyPi does not support hosting Linux wheel files. So we are forced to host our own.
 
-    pip install https://s3-us-west-2.amazonaws.com/artifacts.numenta.org/numenta/nupic.core/releases/nupic.bindings/nupic.bindings-0.4.4-cp27-none-linux_x86_64.whl
+    pip install https://s3-us-west-2.amazonaws.com/artifacts.numenta.org/numenta/nupic.core/releases/nupic.bindings/nupic.bindings-0.4.5-cp27-none-linux_x86_64.whl
     pip install nupic
 
 ### Install Windows
@@ -66,7 +67,7 @@ For details about checking out this repository and building in your local enviro
 
  Please see the [Contributing to NuPIC](https://github.com/numenta/nupic/wiki/Contributing-to-NuPIC) wiki page.
 
- * Build: 
+ * Build:
 [![Build Status](https://travis-ci.org/numenta/nupic.png?branch=master)](https://travis-ci.org/numenta/nupic)
 [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/4toemh0qtr21mk6b/branch/master?svg=true)](https://ci.appveyor.com/project/numenta-ci/nupic/branch/master)
  * Unit Test Coverage: [![Coverage Status](https://coveralls.io/repos/numenta/nupic/badge.png?branch=master)](https://coveralls.io/r/numenta/nupic?branch=master)

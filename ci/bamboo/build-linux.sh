@@ -30,19 +30,17 @@ export CXX
 # Install OS dependencies, assuming stock ubuntu:latest
 apt-get update
 apt-get install -y \
+    curl \
     wget \
     git \
     ${COMPILER_PACKAGES} \
     build-essential \
     python \
     python2.7 \
-    python2.7-dev \
-    python-pip
-pip install --upgrade --ignore-installed setuptools
-pip install wheel
+    python2.7-dev
 
-# Move into root of nupic repository
-pushd `git rev-parse --show-toplevel`
+# Install specific versions of pip, setuptools, and wheel
+./ci/bamboo/install-pip-setuptools-wheel.sh
 
 # Build installable python packages
 python setup.py bdist_wheel
@@ -52,7 +50,5 @@ python setup.py bdist_wheel
 pip install -f wheelhouse/ dist/nupic-`cat VERSION`*.whl
 
 # Invoke tests
-python setup.py test
+python setup.py test --pytest-args="--junit-xml=`pwd`/nupic-test-results.xml --cov nupic unit"
 
-# Return to original path
-popd
